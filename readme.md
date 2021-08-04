@@ -11,6 +11,7 @@
 * [查找Commit在哪个分支上](#查找Commit在哪个分支上)
 * [查找某个文件在哪个Commit上被删除](#查找某个文件在哪个Commit上被删除)
 * [查找某个文件被添加进repo时的Commit](#查找某个文件被添加进repo时的commit)
+* [清除不被任何分支所有的Commit](#清除不被任何分支所有的Commit)
 * [推送一个空提交的分支](#推送一个空提交的分支)
 * [统计历史提交的Commit个数](#统计历史提交的Commit个数)
 * [找到一个empty_tree对应的sha值](#找到一个empty_tree对应的sha值)
@@ -53,6 +54,31 @@ git log --oneline --full-history -- prospector
 
 
 
+## 找回丢失的Commit
+
+当我们进行reset 或者删除分支操作后,对应的Commit 会消失,如果想要查找这些消失的Commit,可以使用如下命令
+
+```bash
+git fsck --lost-found
+```
+
+
+
+## 清除不被任何分支所有的Commit
+
+**谨慎使用**
+
+在一个分支上开发，有一些commit没有merge进master，后来放弃这个分支，不想继续开发了，那么这些没merge的commit就丢失了，称为dangling。
+
+```bash
+git reflog expire --expire-unreachable=now --all
+git gc --prune=now
+```
+
+
+
+
+
 ## 查找某个文件被添加进repo时的Commit
 
 ```bash
@@ -77,7 +103,7 @@ git push origin ${commit_id}:refs/heads/dist
 
 ## 统计历史提交的Commit个数
 
-```
+```bash
 git rev-list --all --count
 ```
 
