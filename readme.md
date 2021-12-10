@@ -17,8 +17,8 @@
 * [找到一个empty_tree对应的sha值](#找到一个empty_tree对应的sha值)
 * [GitDiff时获取完整的file_sha](#GitDiff时获取完整的file_sha)
 * [查看git_unpacked_object和磁盘占用空间](#查看git_unpacked_object和磁盘占用空间)
-
-
+* [Git提交后重设Author](#Git提交后重设Author)
+* [查看某个文件特定行数的修改历史](#Git查看某个文件指定行的修改历史)
 
 
 
@@ -135,3 +135,20 @@ git diff 946d60369589d6a269938edd65c0a6a7b1c3ef5c 3b990136bfab74249f166dd742fd8e
 git count-obbject -v —H
 ```
 
+
+
+## Git提交后重设Author
+
+```bash
+git commit --amend --reset-author
+```
+
+
+
+## Git查看某个文件指定行的修改历史
+
+``` shell
+git log -L {start_line,end_line}:{file_name}
+```
+
+![image-20211210095921742](readme.assets/image-20211210095921742.png)
