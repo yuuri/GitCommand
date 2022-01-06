@@ -19,6 +19,7 @@
 * [查看git_unpacked_object和磁盘占用空间](#查看git_unpacked_object和磁盘占用空间)
 * [Git提交后重设Author](#Git提交后重设Author)
 * [查看某个文件特定行数的修改历史](#Git查看某个文件指定行的修改历史)
+* [修改某个分支追踪的上游](#修改某个分支追踪的上游)
 
 
 
@@ -152,3 +153,18 @@ git log -L {start_line,end_line}:{file_name}
 ```
 
 ![image-20211210095921742](readme.assets/image-20211210095921742.png)
+
+
+
+## 修改某个分支追踪的上游
+
+```shll
+
+git branch --set-upstream-to your_remote/your_remote_branch your_local_branch
+# or
+git branch -u your_remote/your_remote_branch your_local_branch
+```
+
+
+
+![image-20220106103412066](readme.assets/image-20220106103412066.png)
