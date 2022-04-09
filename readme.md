@@ -20,6 +20,8 @@
 * [Git提交后重设Author](#Git提交后重设Author)
 * [查看某个文件特定行数的修改历史](#Git查看某个文件指定行的修改历史)
 * [修改某个分支追踪的上游](#修改某个分支追踪的上游)
+* [Git显示颜色](#Git显示颜色)
+* [查看当前commit与最近的一个tag之间的关系](#查看当前commit与最近的一个tag之间的关系)
 
 
 
@@ -168,3 +170,36 @@ git branch -u your_remote/your_remote_branch your_local_branch
 
 
 ![image-20220106103412066](readme.assets/image-20220106103412066.png)
+
+
+
+## Git显示颜色
+
+```shell
+git config --global color.ui auto
+```
+
+
+
+## 查看当前commit与最近的一个tag之间的关系
+
+```
+git describe 
+```
+
+example: (以prometheus 项目为例)
+```shell
+houjie@houjiedeMacBook-Pro prometheus % git show --stat --oneline
+f0ec619ee (HEAD -> main, origin/main, origin/HEAD) scrape: allow providing a custom Dialer for scraping (#10415)
+ scrape/manager.go     |  7 ++++++-
+ scrape/scrape.go      | 18 +++++++++++++++---
+ scrape/scrape_test.go | 16 ++++++++--------
+ 3 files changed, 29 insertions(+), 12 deletions(-)
+houjie@houjiedeMacBook-Pro prometheus %
+
+
+
+houjie@houjiedeMacBook-Pro prometheus % git describe
+v2.34.0-rc.0-27-gf0ec619ee
+houjie@houjiedeMacBook-Pro prometheus %
+```
